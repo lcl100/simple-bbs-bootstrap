@@ -9,7 +9,7 @@
       crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <!-- 导入本页面需要的css -->
-    <link rel="stylesheet" href="css/register.css"/>
+    <link rel="stylesheet" href="css/register.css" />
   </head>
   <body>
     <!-- 顶部导航栏 0 -->
@@ -83,11 +83,33 @@
         <!-- 注册按钮 -->
         <div class="input-group flex-nowrap username-input" id="register-div">
           <span id="tip-text">如果已有账户，请前往<a href="./login.html">登录</a></span>
-          <input type="submit" value="注册" class="btn btn-primary" />
+          <input type="submit" value="注册" class="btn btn-primary" id="register-button" />
         </div>
       </form>
       <!-- 注册表单 1 -->
     </div>
     <!-- 中间表单 1 -->
+    <!-- 提示组件 0 -->
+    <div class="position-fixed bottom-0 end-0" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">提示</strong>
+          <small>刚刚</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <p id="toast-body">注册成功</p>
+        </div>
+      </div>
+    </div>
+    <!-- 提示组件 1 -->
+    <script>
+      // 使用toast提示组件提示消息, 通过按钮来触发提示框的显示
+      document.getElementById("register-button").onclick = function() {
+        var totalLiveExample = document.getElementById("liveToast");
+        var toast = new bootstrap.Toast(totalLiveExample);
+        toast.show();
+      }
+    </script>
   </body>
 </html>

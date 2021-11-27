@@ -26,7 +26,9 @@
             <li><a class="dropdown-item" href="./register.html">注册</a></li>
             <!-- 如果已登录，则显示下面的列表项 -->
             <li><a class="dropdown-item" href="./index.html">个人主页</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item" href="./publish.html">发表话题</a></li>
             <li><a class="dropdown-item" href="/logout">登出</a></li>
           </ul>
@@ -65,5 +67,27 @@
       <!-- 登录表单 1 -->
     </div>
     <!-- 中间表单 1 -->
+    <!-- 提示组件 0 -->
+    <div class="position-fixed bottom-0 end-0" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">提示</strong>
+          <small>刚刚</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <p id="toast-body">登录成功</p>
+        </div>
+      </div>
+    </div>
+    <!-- 提示组件 1 -->
+    <script>
+      // 使用toast提示组件提示消息, 通过按钮来触发提示框的显示
+      document.getElementById("login-button").onclick = function() {
+        var totalLiveExample = document.getElementById("liveToast");
+        var toast = new bootstrap.Toast(totalLiveExample);
+        toast.show();
+      }
+    </script>
   </body>
 </html>
